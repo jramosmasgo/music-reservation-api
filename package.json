@@ -1,0 +1,32 @@
+{
+  "name": "music-reservation",
+  "version": "1.0.0",
+  "description": "application for reservation rehearsal room",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jean Ramos Masgo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^17.0.23",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "cloudinary": "^1.29.1",
+    "datauri": "^4.1.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^3.0.0",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.18.0"
+  }
+}
