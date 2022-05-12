@@ -4,12 +4,12 @@ import { UserOutput } from "../../models/userModel";
 import createUserService from "../../services/users/createUserService";
 
 const createUserController = async (
-  req: Request<{}, {}, UserOutput>,
+  req: Request<{}, {}, { user: UserOutput; image: string }>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const userCreate = await createUserService(req.body);
+    const userCreate = await createUserService(req.body.user, req.body.image);
     new ResponseApi<UserOutput>({
       message: "User created",
       data: userCreate,

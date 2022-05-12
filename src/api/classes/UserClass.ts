@@ -30,7 +30,6 @@ User.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     phone: {
       type: DataTypes.STRING,
@@ -42,6 +41,7 @@ User.init(
     },
   },
   {
+    indexes: [{ unique: true, fields: ["email"] }],
     timestamps: true,
     sequelize: sequelizeConnection,
     paranoid: true,

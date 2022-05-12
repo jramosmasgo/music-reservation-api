@@ -4,13 +4,16 @@ import { UserOutput } from "../../models/userModel";
 import updateImageProfileService from "../../services/users/updateImageProfileService";
 
 const updateImageProfileController = async (
-  req: Request,
+  req: Request<{}, {}, { image: string }>,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const { idUser } = req.headers;
-    const result = await updateImageProfileService(req.file!, idUser as string);
+    const result = await updateImageProfileService(
+      req.body.image,
+      idUser as string
+    );
     new ResponseApi<UserOutput>({
       data: result,
       message: "user updated",

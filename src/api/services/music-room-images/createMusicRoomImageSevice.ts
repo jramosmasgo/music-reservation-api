@@ -3,17 +3,17 @@ import createImageData from "../../data/images/createImageData";
 import createMusicRoomImageData from "../../data/music-room-image/createMusicRoomImageData";
 import getMusicRoomByFilterData from "../../data/music-room/getMusicRoomByFilterData";
 import { MusicRommImageInput } from "../../models/MusicRoomImagesModel";
-import { uploadImageCloudinaryService } from "../images/uploadImageToCloudinaryService";
+import uploadImageBase64ToCloudinaryService from "../images/uploadImageBase64ToCloudinaryService";
 
 const createMusicRoomImageService = async (
-  image: Express.Multer.File,
+  image: string,
   idMusicRoom: string
 ) => {
   try {
     const musicroom = await getMusicRoomByFilterData({ id: idMusicRoom });
     if (!musicroom) throw new Error("music room not found");
 
-    const { secure_url } = await uploadImageCloudinaryService(image);
+    const secure_url = await uploadImageBase64ToCloudinaryService(image);
     const imageData = await createImageData({ url: secure_url });
 
     if (!imageData) throw new Error("error on save image");

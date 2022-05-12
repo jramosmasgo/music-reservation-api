@@ -13,7 +13,7 @@ class Company extends Model<CompanyOuput, CompanyInput> implements ICompany {
   public name: string;
   public logo: string;
   public property: string;
-  public typeDoc: number;
+  public validationDoc: string;
   public numberDoc: string;
   public phone: string;
   public state: number;
@@ -42,8 +42,8 @@ Company.init(
     property: {
       type: DataTypes.UUID,
     },
-    typeDoc: {
-      type: DataTypes.INTEGER,
+    validationDoc: {
+      type: DataTypes.UUID,
       allowNull: false,
     },
     numberDoc: {
@@ -69,6 +69,11 @@ Company.init(
 Company.hasOne(Image, {
   foreignKey: "id",
   sourceKey: "logo",
+});
+
+Company.hasOne(Image, {
+  foreignKey: "id",
+  sourceKey: "validationDoc",
 });
 
 Company.hasOne(User, {

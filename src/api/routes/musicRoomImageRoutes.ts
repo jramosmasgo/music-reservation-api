@@ -9,7 +9,6 @@ const router = Router();
 
 router.post(
   "/room-images",
-  uploadImageMiddleware,
   tokenValidationMiddleware,
   createMusicRoomImageController
 );

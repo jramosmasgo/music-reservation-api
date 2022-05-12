@@ -5,8 +5,8 @@ export interface Company {
   name: string;
   logo: string;
   property: string;
-  typeDoc: number;
   numberDoc: string;
+  validationDoc: string;
   phone: string;
   state: number;
 }

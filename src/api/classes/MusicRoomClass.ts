@@ -21,6 +21,7 @@ export class MusicRoom
   public city: string;
   public longitude: string;
   public latitude: string;
+  public description: string;
 
   // timestamps!
   public readonly createdAt!: Date;
@@ -62,6 +63,10 @@ MusicRoom.init(
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

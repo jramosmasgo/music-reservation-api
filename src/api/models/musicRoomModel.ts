@@ -10,6 +10,7 @@ export interface MusicRoom {
   longitude: string;
   collaborator: string;
   phone: string;
+  description: string;
 }
 
 export interface MusicRoomInput extends Optional<MusicRoom, "id"> {}

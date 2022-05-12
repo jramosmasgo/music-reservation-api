@@ -4,13 +4,13 @@ import { MusicRommImageOuput } from "../../models/MusicRoomImagesModel";
 import createMusicRoomImageService from "../../services/music-room-images/createMusicRoomImageSevice";
 
 const createMusicRoomImageController = async (
-  req: Request<{}, {}, { idRoomMusic: string }>,
+  req: Request<{}, {}, { idRoomMusic: string; image: string }>,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const result = await createMusicRoomImageService(
-      req.file!,
+      req.body.image,
       req.body.idRoomMusic
     );
     new ResponseApi<MusicRommImageOuput>({
