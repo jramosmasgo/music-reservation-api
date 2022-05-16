@@ -10,7 +10,7 @@ const createUserController = async (
 ) => {
   try {
     const userCreate = await createUserService(req.body.user, req.body.image);
-    new ResponseApi<UserOutput>({
+    new ResponseApi<string>({
       message: "User created",
       data: userCreate,
     }).sendSuccess(res);

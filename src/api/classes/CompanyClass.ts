@@ -41,6 +41,7 @@ Company.init(
     },
     property: {
       type: DataTypes.UUID,
+      allowNull: false,
     },
     validationDoc: {
       type: DataTypes.UUID,
@@ -57,6 +58,7 @@ Company.init(
     state: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 1,
     },
   },
   {

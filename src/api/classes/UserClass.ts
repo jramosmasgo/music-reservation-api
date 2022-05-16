@@ -9,6 +9,8 @@ class User extends Model<UserOutput, UserInput> implements IUser {
   public email: string;
   public phone: string;
   public profileImage: string;
+  public uid: string;
+  public emailVerified: boolean;
 
   // timestamps!
   public readonly createdAt!: Date;
@@ -33,11 +35,19 @@ User.init(
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     profileImage: {
       type: DataTypes.UUID,
       allowNull: true,
+    },
+    uid: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    emailVerified: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
   },
   {

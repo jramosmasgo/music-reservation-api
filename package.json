@@ -10,6 +10,7 @@
   "author": "Jean Ramos Masgo",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/multer": "^1.4.7",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "cloudinary": "^1.29.1",
+    "cors": "^2.8.5",
     "datauri": "^4.1.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

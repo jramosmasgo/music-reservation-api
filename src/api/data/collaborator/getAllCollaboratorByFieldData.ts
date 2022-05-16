@@ -8,7 +8,6 @@ const getAllCollaboratorByfieldData = async (
   filter: Object
 ): Promise<CollaboratorOuput[]> => {
   try {
-    console.log(filter);
     return await Collaborator.findAll({
       where: { ...filter },
       include: [{ model: User }, { model: Company }],

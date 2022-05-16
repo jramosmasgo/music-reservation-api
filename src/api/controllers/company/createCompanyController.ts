@@ -9,6 +9,8 @@ const createCompanyController = async (
   next: NextFunction
 ) => {
   try {
+    const { idUser } = req.headers;
+    req.body.property = idUser as string;
     const result = await createCompanyService(req.body);
     new ResponseApi<CompanyInput>({
       data: result,

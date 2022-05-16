@@ -13,14 +13,13 @@ export class MusicRoom
   implements IMusicRoom
 {
   public id: string;
+  public name: string;
   public company: string;
   public address: string;
   public collaborator: string;
   public phone: string;
   public country: string;
   public city: string;
-  public longitude: string;
-  public latitude: string;
   public description: string;
 
   // timestamps!
@@ -36,6 +35,9 @@ MusicRoom.init(
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
+    name: {
+      type: DataTypes.STRING,
+    },
     company: {
       type: DataTypes.UUID,
     },
@@ -44,14 +46,6 @@ MusicRoom.init(
     },
     city: {
       type: DataTypes.STRING,
-    },
-    latitude: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    longitude: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     address: {
       type: DataTypes.STRING,

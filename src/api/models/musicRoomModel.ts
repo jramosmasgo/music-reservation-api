@@ -2,12 +2,11 @@ import { Optional } from "sequelize/types";
 
 export interface MusicRoom {
   id: string;
+  name: string;
   company: string;
   country: string;
   city: string;
   address: string;
-  latitude: string;
-  longitude: string;
   collaborator: string;
   phone: string;
   description: string;
