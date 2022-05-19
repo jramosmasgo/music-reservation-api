@@ -6,6 +6,7 @@ const findUserDataByField = async (
   data: Object
 ): Promise<UserOutput | null> => {
   try {
+    console.log(data);
     return await User.findOne({ where: { ...data } });
   } catch (error: any) {
     throw new ApplicationError(400, error.message, "Found User");

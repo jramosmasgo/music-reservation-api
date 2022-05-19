@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
+import imageRoute from "./api/routes/imageRoutes";
 import userRoute from "./api/routes/userRoutes";
 import companyRoute from "./api/routes/companyRoutes";
 import collaboratorRoute from "./api/routes/collaboratorRoutes";
@@ -23,6 +24,7 @@ app.use(
   })
 );
 
+app.use(imageRoute);
 app.use(userRoute);
 app.use(companyRoute);
 app.use(collaboratorRoute);

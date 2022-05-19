@@ -1,15 +1,18 @@
 import { Request, Response, NextFunction } from "express";
 import ResponseApi from "../../core/responseAPI";
 import { CompanyOuput } from "../../models/companyModel";
-import updateCompanyService from "../../services/company/updateCompanyService";
+import uploadLogoCompanyService from "../../services/company/uploadLogoCompanyService";
 
-const updateCompanyController = async (
-  req: Request<{ idCompanu: string }, {}, {}>,
+const uploadLogoCompanyController = async (
+  req: Request<{ idCompany: string }, {}, { image: string }>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const result = await updateCompanyService(req.body, req.params.idCompanu);
+    const result = await uploadLogoCompanyService(
+      req.body.image,
+      req.params.idCompany
+    );
     new ResponseApi<CompanyOuput>({
       data: result,
       message: "company updated",
@@ -19,4 +22,4 @@ const updateCompanyController = async (
   }
 };
 
-export default updateCompanyController;
+export default uploadLogoCompanyController;

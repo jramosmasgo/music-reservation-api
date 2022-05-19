@@ -2,9 +2,10 @@ import updateCompanyData from "../../data/company/updateCompanyData";
 import { CompanyOuput } from "../../models/companyModel";
 
 const updateCompanyService = async (
-  company: CompanyOuput
+  values: Object,
+  id: string
 ): Promise<CompanyOuput> => {
-  return await updateCompanyData(company);
+  return await updateCompanyData({ ...values }, id);
 };
 
 export default updateCompanyService;
