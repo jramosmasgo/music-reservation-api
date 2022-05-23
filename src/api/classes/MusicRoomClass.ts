@@ -90,13 +90,3 @@ MusicRoom.init(
     paranoid: true,
   }
 );
-
-MusicRoom.hasOne(Collaborator, {
-  foreignKey: "id",
-  sourceKey: "collaborator",
-});
-
-MusicRoom.hasOne(Company, {
-  foreignKey: "id",
-  sourceKey: "company",
-});

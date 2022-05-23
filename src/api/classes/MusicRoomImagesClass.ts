@@ -8,7 +8,7 @@ import {
 import Image from "./ImageClass";
 import { MusicRoom } from "./MusicRoomClass";
 
-export class MusicRommImage
+export class MusicRoomImage
   extends Model<MusicRommImageOuput, MusicRommImageInput>
   implements IMusicRommImage
 {
@@ -22,7 +22,7 @@ export class MusicRommImage
   public readonly deletedAt!: Date;
 }
 
-MusicRommImage.init(
+MusicRoomImage.init(
   {
     id: {
       primaryKey: true,
@@ -42,13 +42,3 @@ MusicRommImage.init(
     paranoid: false,
   }
 );
-
-MusicRommImage.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "idImage",
-});
-
-MusicRommImage.hasOne(MusicRoom, {
-  foreignKey: "id",
-  sourceKey: "idMusicRoom",
-});

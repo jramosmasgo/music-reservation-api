@@ -52,18 +52,3 @@ Band.init(
     paranoid: true,
   }
 );
-
-Band.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "logo",
-});
-
-Band.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "coverImage",
-});
-
-Band.hasOne(User, {
-  foreignKey: "id",
-  sourceKey: "admin",
-});

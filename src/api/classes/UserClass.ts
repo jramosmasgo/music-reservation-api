@@ -58,9 +58,4 @@ User.init(
   }
 );
 
-User.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "profileImage",
-});
-
 export default User;

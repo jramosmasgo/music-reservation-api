@@ -1,4 +1,4 @@
-import { MusicRommImage } from "../../classes/MusicRoomImagesClass";
+import { MusicRoomImage } from "../../classes/MusicRoomImagesClass";
 import { ApplicationError } from "../../core/ApplicationError";
 import {
   MusicRommImageInput,
@@ -9,7 +9,7 @@ const createMusicRoomImageData = async (
   data: MusicRommImageInput
 ): Promise<MusicRommImageOuput> => {
   try {
-    return await MusicRommImage.create(data);
+    return await MusicRoomImage.create(data);
   } catch (error: any) {
     throw new ApplicationError(400, error.message, "create Music Room");
   }
