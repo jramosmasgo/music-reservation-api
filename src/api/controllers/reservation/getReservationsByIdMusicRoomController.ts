@@ -12,7 +12,7 @@ const getReservationsByIdMusicRoomController = async (
     const result = await getReservationsByFilterService({
       musicRoom: req.params.idMusicRoom,
     });
-    new ResponseApi<ReservationOuput>({
+    new ResponseApi<ReservationOuput[]>({
       data: result,
       message: "reservations found",
     }).sendSuccess(res);

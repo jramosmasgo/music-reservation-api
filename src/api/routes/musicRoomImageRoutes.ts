@@ -20,7 +20,7 @@ router.delete(
 );
 
 router.get(
-  "/room-images",
+  "/room-images/:idMusicRoom",
   tokenValidationMiddleware,
   getAllImagesByIdRoomMusic
 );

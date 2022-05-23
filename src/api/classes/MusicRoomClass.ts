@@ -21,6 +21,11 @@ export class MusicRoom
   public country: string;
   public city: string;
   public description: string;
+  public priceHour: number;
+  public currencyWorld: string;
+  public openingHours: Date;
+  public closeHours: Date;
+  public isOpening: boolean;
 
   // timestamps!
   public readonly createdAt!: Date;
@@ -61,6 +66,22 @@ MusicRoom.init(
     description: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    priceHour: {
+      type: DataTypes.DECIMAL,
+    },
+    currencyWorld: {
+      type: DataTypes.STRING,
+    },
+    openingHours: {
+      type: DataTypes.DATE,
+    },
+    closeHours: {
+      type: DataTypes.DATE,
+    },
+    isOpening: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   },
   {

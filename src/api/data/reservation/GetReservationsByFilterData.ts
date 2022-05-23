@@ -1,3 +1,5 @@
+import Company from "../../classes/CompanyClass";
+import { MusicRoom } from "../../classes/MusicRoomClass";
 import { Reservation } from "../../classes/ReservationClass";
 import { ApplicationError } from "../../core/ApplicationError";
 import { ReservationOuput } from "../../models/reservationModel";
@@ -6,7 +8,10 @@ const getReservationsByFilterData = async (
   filter: Object
 ): Promise<ReservationOuput[]> => {
   try {
-    return await Reservation.findAll({ where: { ...filter } });
+    return await Reservation.findAll({
+      where: { ...filter },
+      include: [{ model: MusicRoom, include: [Company] }],
+    });
   } catch (error: any) {
     throw new ApplicationError(400, error.message, "find reservations");
   }

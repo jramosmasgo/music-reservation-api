@@ -10,6 +10,11 @@ export interface MusicRoom {
   collaborator: string;
   phone: string;
   description: string;
+  priceHour: number;
+  currencyWorld: string;
+  openingHours: Date;
+  closeHours: Date;
+  isOpening: boolean;
 }
 
 export interface MusicRoomInput extends Optional<MusicRoom, "id"> {}

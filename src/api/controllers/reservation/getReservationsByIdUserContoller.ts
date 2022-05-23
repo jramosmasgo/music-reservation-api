@@ -4,15 +4,16 @@ import { ReservationOuput } from "../../models/reservationModel";
 import getReservationsByFilterService from "../../services/reservation/getReservationsByFilterService";
 
 const getReservationsByIdUserController = async (
-  req: Request<{ idUser: string }, {}, {}>,
+  req: Request<{}, {}, {}>,
   res: Response,
   next: NextFunction
 ) => {
   try {
+    const { idUser } = req.headers;
     const result = await getReservationsByFilterService({
-      user: req.params.idUser,
+      user: idUser as string,
     });
-    new ResponseApi<ReservationOuput>({
+    new ResponseApi<ReservationOuput[]>({
       data: result,
       message: "reservations found",
     }).sendSuccess(res);

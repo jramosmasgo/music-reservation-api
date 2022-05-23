@@ -7,12 +7,15 @@ import {
 import createReservationService from "../../services/reservation/createReservationService";
 
 const createReservationController = async (
-  req: Request<{}, {}, { band: ReservationInput }>,
+  req: Request<{}, {}, ReservationInput>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const result = await createReservationService(req.body.band);
+    console.log(req.body);
+    const { idUser } = req.headers;
+    req.body.user = idUser as string;
+    const result = await createReservationService(req.body);
     new ResponseApi<ReservationOuput>({
       data: result,
       message: "reservation created",

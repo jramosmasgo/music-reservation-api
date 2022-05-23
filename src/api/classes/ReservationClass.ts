@@ -15,6 +15,7 @@ export class Reservation
 {
   public id: string;
   public date: Date;
+  public endDate: Date;
   public band: string;
   public user: string;
   public musicRoom: string;
@@ -37,9 +38,13 @@ Reservation.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    endDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     band: {
       type: DataTypes.UUID,
-      allowNull: false,
+      allowNull: true,
     },
     user: {
       type: DataTypes.UUID,

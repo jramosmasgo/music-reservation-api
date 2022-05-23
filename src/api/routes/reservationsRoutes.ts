@@ -27,13 +27,13 @@ router.get(
 );
 
 router.get(
-  "/reservation/user/:idUser",
+  "/reservations/user",
   tokenValidationMiddleware,
   getReservationsByIdUserController
 );
 
 router.get(
-  "/reservatio/music-room/:idmusicRoom",
+  "/reservation/music-room/:idMusicRoom",
   tokenValidationMiddleware,
   getReservationsByIdMusicRoomController
 );
