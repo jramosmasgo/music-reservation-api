@@ -11,6 +11,8 @@ class User extends Model<UserOutput, UserInput> implements IUser {
   public profileImage: string;
   public uid: string;
   public emailVerified: boolean;
+  public loginSocialNetwork: boolean;
+  public companyCreator: boolean;
 
   // timestamps!
   public readonly createdAt!: Date;
@@ -48,6 +50,14 @@ User.init(
     emailVerified: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+    },
+    loginSocialNetwork: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    companyCreator: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   },
   {

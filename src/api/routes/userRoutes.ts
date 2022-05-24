@@ -4,6 +4,7 @@ import getUserByEmailController from "../controllers/user/getUserByEmailControll
 import loginSocialNetworkController from "../controllers/user/loginSocialNetworkController";
 import loginUserController from "../controllers/user/loginUserController";
 import updateImageProfileController from "../controllers/user/updateImageProfileController";
+import updateUserController from "../controllers/user/updateUserController";
 import tokenValidationMiddleware from "../middlewares/tokenValidationMiddleware";
 const router = Router();
 
@@ -17,5 +18,7 @@ router.put(
   tokenValidationMiddleware,
   updateImageProfileController
 );
+
+router.put("/user/update", tokenValidationMiddleware, updateUserController);
 
 export default router;

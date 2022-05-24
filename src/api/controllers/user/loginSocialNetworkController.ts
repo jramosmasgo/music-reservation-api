@@ -9,6 +9,7 @@ const loginSocialNetworkController = async (
   next: NextFunction
 ) => {
   try {
+    req.body.user.loginSocialNetwork = true;
     const token = await loginSocialNetworkService(req.body.user);
     new ResponseApi<string>({
       data: token,
