@@ -2,9 +2,10 @@ import updateReservationData from "../../data/reservation/updateReservationData"
 import { ReservationOuput } from "../../models/reservationModel";
 
 const updateReservationService = async (
-  data: ReservationOuput
+  data: Object,
+  id: string
 ): Promise<ReservationOuput> => {
-  return await updateReservationData(data);
+  return await updateReservationData(data, id);
 };
 
 export default updateReservationService;

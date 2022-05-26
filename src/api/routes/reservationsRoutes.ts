@@ -15,7 +15,7 @@ router.post(
 );
 
 router.put(
-  "/reservation",
+  "/reservation/:id",
   tokenValidationMiddleware,
   updateReservationController
 );

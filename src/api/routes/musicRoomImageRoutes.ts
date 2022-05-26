@@ -3,7 +3,6 @@ import createMusicRoomImageController from "../controllers/music-room-images/cre
 import deleteMusicRoomImageController from "../controllers/music-room-images/deleteMusicRoomImageController";
 import getAllImagesByIdRoomMusic from "../controllers/music-room-images/getAlImagesByIdMusicRoomController";
 import tokenValidationMiddleware from "../middlewares/tokenValidationMiddleware";
-import uploadImageMiddleware from "../middlewares/uploadImageMiddleware";
 
 const router = Router();
 
@@ -19,9 +18,5 @@ router.delete(
   deleteMusicRoomImageController
 );
 
-router.get(
-  "/room-images/:idMusicRoom",
-  tokenValidationMiddleware,
-  getAllImagesByIdRoomMusic
-);
+router.get("/room-images/:idMusicRoom", getAllImagesByIdRoomMusic);
 export default router;

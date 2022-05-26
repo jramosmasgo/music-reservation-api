@@ -68,19 +68,4 @@ Company.init(
   }
 );
 
-Company.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "logo",
-});
-
-Company.hasOne(Image, {
-  foreignKey: "id",
-  sourceKey: "validationDoc",
-});
-
-Company.hasOne(User, {
-  foreignKey: "id",
-  sourceKey: "property",
-});
-
 export default Company;

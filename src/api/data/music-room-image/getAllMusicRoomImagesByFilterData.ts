@@ -1,5 +1,5 @@
 import Image from "../../classes/ImageClass";
-import { MusicRommImage } from "../../classes/MusicRoomImagesClass";
+import { MusicRoomImage } from "../../classes/MusicRoomImagesClass";
 import { ApplicationError } from "../../core/ApplicationError";
 import { MusicRommImageOuput } from "../../models/MusicRoomImagesModel";
 
@@ -7,7 +7,7 @@ const getAllMusicRoomsImageByFilter = async (
   filter: Object
 ): Promise<MusicRommImageOuput[]> => {
   try {
-    return await MusicRommImage.findAll({
+    return await MusicRoomImage.findAll({
       where: { ...filter },
       include: [{ model: Image }],
     });

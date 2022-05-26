@@ -48,13 +48,3 @@ Collaborator.init(
     paranoid: true,
   }
 );
-
-Collaborator.hasOne(User, {
-  foreignKey: "id",
-  sourceKey: "user",
-});
-
-Collaborator.hasOne(Company, {
-  foreignKey: "id",
-  sourceKey: "company",
-});

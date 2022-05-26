@@ -61,18 +61,3 @@ Reservation.init(
   },
   { timestamps: true, sequelize: sequelizeConnection, paranoid: true }
 );
-
-Reservation.hasOne(User, {
-  foreignKey: "id",
-  sourceKey: "user",
-});
-
-Reservation.hasOne(Band, {
-  foreignKey: "id",
-  sourceKey: "band",
-});
-
-Reservation.hasOne(MusicRoom, {
-  foreignKey: "id",
-  sourceKey: "musicRoom",
-});
