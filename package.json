@@ -4,7 +4,7 @@
   "description": "application for reservation rehearsal room",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development build/src/index.js",
+    "start": "node build/src/index.js",
     "dev": "NODE_ENV=development ts-node-dev src/index.ts",
     "build": "tsc",
     "deplot": "",
