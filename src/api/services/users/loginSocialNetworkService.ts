@@ -3,6 +3,7 @@ import createUserData from "../../data/users/createUserData";
 import findUserDataByField from "../../data/users/findUserDataByField";
 import { UserInput } from "../../models/userModel";
 import { createAuthToken } from "../../utils/token";
+import { sendEmail } from "../email/sendEmailService";
 import uploadImageBase64ToCloudinaryService from "../images/uploadImageBase64ToCloudinaryService";
 
 const loginSocialNetworkService = async (user: UserInput): Promise<string> => {
@@ -18,6 +19,13 @@ const loginSocialNetworkService = async (user: UserInput): Promise<string> => {
         user.profileImage = resultUploadPhoto.id;
       }
       userFound = await createUserData(user);
+
+      if (userFound) {
+        await sendEmail(userFound.email, "Registro de cuenta", "register.hbs", {
+          username: userFound.fullname,
+          url: `${process.env.URL_FRONTEND}/music-rooms`,
+        });
+      }
     }
     const token = createAuthToken({ idUser: userFound.id });
     return token;

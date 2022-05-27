@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const createMusicRoomController_1 = __importDefault(require("../controllers/music-room/createMusicRoomController"));
+const getAllMusicRoomsController_1 = __importDefault(require("../controllers/music-room/getAllMusicRoomsController"));
+const getMusicRoomByIdController_1 = __importDefault(require("../controllers/music-room/getMusicRoomByIdController"));
+const getMusicRoomsByCompany_1 = __importDefault(require("../controllers/music-room/getMusicRoomsByCompany"));
+const getMusicRoomsByUserController_1 = __importDefault(require("../controllers/music-room/getMusicRoomsByUserController"));
+const updateMusicRoomController_1 = __importDefault(require("../controllers/music-room/updateMusicRoomController"));
+const tokenValidationMiddleware_1 = __importDefault(require("../middlewares/tokenValidationMiddleware"));
+const router = (0, express_1.Router)();
+router.post("/music-room", tokenValidationMiddleware_1.default, createMusicRoomController_1.default);
+router.get("/music-room", getAllMusicRoomsController_1.default);
+router.put("/music-room", tokenValidationMiddleware_1.default, updateMusicRoomController_1.default);
+router.get("/music-room/company/:idCompany", tokenValidationMiddleware_1.default, getMusicRoomsByCompany_1.default);
+router.get("/music-room/:idMusicRoom", getMusicRoomByIdController_1.default);
+router.get("/music-room/user/all", tokenValidationMiddleware_1.default, getMusicRoomsByUserController_1.default);
+exports.default = router;

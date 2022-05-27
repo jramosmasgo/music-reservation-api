@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const createUserController_1 = __importDefault(require("../controllers/user/createUserController"));
+const getUserByEmailController_1 = __importDefault(require("../controllers/user/getUserByEmailController"));
+const loginSocialNetworkController_1 = __importDefault(require("../controllers/user/loginSocialNetworkController"));
+const loginUserController_1 = __importDefault(require("../controllers/user/loginUserController"));
+const updateImageProfileController_1 = __importDefault(require("../controllers/user/updateImageProfileController"));
+const updateUserController_1 = __importDefault(require("../controllers/user/updateUserController"));
+const tokenValidationMiddleware_1 = __importDefault(require("../middlewares/tokenValidationMiddleware"));
+const router = (0, express_1.Router)();
+router.post("/sign-up", createUserController_1.default);
+router.post("/sign-up/social-network", loginSocialNetworkController_1.default);
+router.post("/sign-in", loginUserController_1.default);
+router.get("/user/:email", tokenValidationMiddleware_1.default, getUserByEmailController_1.default);
+router.put("/update-image", tokenValidationMiddleware_1.default, updateImageProfileController_1.default);
+router.put("/user/update", tokenValidationMiddleware_1.default, updateUserController_1.default);
+exports.default = router;

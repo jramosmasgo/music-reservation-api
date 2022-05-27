@@ -6,7 +6,7 @@ export interface User {
   email: string;
   phone: string;
   emailVerified: boolean;
-  profileImage: string;
+  profileImage?: string;
   loginSocialNetwork: boolean;
   companyCreator: boolean;
 }
